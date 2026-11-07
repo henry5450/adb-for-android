@@ -1,7 +1,7 @@
 # adb-for-android
 
 在 arm64 Android 设备上**直接运行**的 `adb` / `fastboot` 客户端（非 Termux 运行环境），
-从 AOSP 官方 `platform-tools-35.0.2` 交叉编译，附带 KernelSU 模块。
+从 AOSP 官方 `platform-tools-35.0.2` 交叉编译。
 
 - 链接方式：**bionic 动态 + 第三方全静态**（运行时只需要系统的 `libc/libm/libdl`）
 - `adb`：TCP 连接、`adb pair` 无线调试（TLS）、USB/OTG（root）
