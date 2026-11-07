@@ -1,0 +1,25 @@
+adb-for-android
+===============
+
+The prebuilt `adb` and `fastboot` binaries are compiled from the Android Open
+Source Project (AOSP), platform-tools 35.0.2:
+
+    https://android.googlesource.com/platform/packages/modules/adb
+    https://android.googlesource.com/platform/system/core
+
+AOSP is licensed under the Apache License, Version 2.0.
+
+The build system used to compile them is:
+
+    https://github.com/lzhiyong/android-sdk-tools
+
+which is also licensed under the Apache License, Version 2.0.
+
+The on-device wrappers, build scripts, KernelSU module definitions and local
+patches in this repository are provided by henry5450 under the Apache License,
+Version 2.0.
+
+Modifications to AOSP sources applied by this project (see patches-local/):
+  - openscreen task_runner.h: use std::packaged_task<void()> (libc++/NDK r29)
+  - libbase/libcutils/libziparchive: disable fdsan tagging, which aborts
+    adb server startup on Android 16

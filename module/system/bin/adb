@@ -1,0 +1,13 @@
+#!/system/bin/sh
+# adb wrapper: Android's shell/root HOME is "/" (read-only) and /tmp does not
+# exist, so point adb's key dir and temp dir at writable locations.
+uid=$(id -u)
+case "$HOME" in
+    ""|"/"|"/system"|"/data")
+        HOME="/data/local/tmp/adb-home-$uid"
+        ;;
+esac
+export HOME
+export TMPDIR="${TMPDIR:-/data/local/tmp}"
+mkdir -p "$HOME" 2>/dev/null
+exec /system/bin/adb.bin "$@"

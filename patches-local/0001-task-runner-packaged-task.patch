@@ -1,0 +1,16 @@
+diff --git a/platform/api/task_runner.h b/platform/api/task_runner.h
+index 948eb08..4274562 100644
+--- a/platform/api/task_runner.h
++++ b/platform/api/task_runner.h
+@@ -24,11 +24,7 @@ class TaskRunner {
+  public:
+ // Seem to get an error using clang when compiling with -fno-exceptions:
+ //   error: implicit instantiation of undefined template 'std::__1::packaged_task<void () noexcept>'
+-#if __has_feature(cxx_exceptions)
+-  using Task = std::packaged_task<void() noexcept>;
+-#else
+   using Task = std::packaged_task<void()>;
+-#endif
+ 
+   virtual ~TaskRunner() = default;
+ 

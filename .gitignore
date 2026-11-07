@@ -1,0 +1,9 @@
+# AOSP source tree (fetched by sdk-tools/get_source.py, ~5 GB)
+/sdk-tools/
+# temporary build logs
+/tmp/
+# build output (the shipped copies live in prebuilt/)
+/out/
+# binaries injected into the module by scripts/make-module.sh
+/module/system/bin/*.bin
+*.log

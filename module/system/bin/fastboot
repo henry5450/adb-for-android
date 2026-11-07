@@ -1,0 +1,4 @@
+#!/system/bin/sh
+# fastboot wrapper: keep temp files on a writable path.
+export TMPDIR="${TMPDIR:-/data/local/tmp}"
+exec /system/bin/fastboot.bin "$@"
